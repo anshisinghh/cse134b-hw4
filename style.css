@@ -209,7 +209,7 @@ nav a:hover {
     width: 66%;
     margin: 0 auto;
 }
-#get-in-touch-container input, textarea {
+#get-in-touch-container input {
 	width: 100%;
 	margin-bottom: 1em;
 	padding: 0.5em;
@@ -218,8 +218,8 @@ nav a:hover {
 #get-in-touch-container input {
     height: 3dvh;
 }
-#get-in-touch-container textarea {
-	height: 5dvh;
+#get-in-touch-container #comments {
+	height: 4dvh;
 }
 #get-in-touch-container button {
 	width: 10%;
@@ -235,6 +235,22 @@ nav a:hover {
 }
 #get-in-touch-container button:hover {
     background-color: var(--dark-background-color);
+}
+#contact-form input:user-invalid {
+    background-color: pink;
+}
+#contact-form input:valid{
+    border: 1px solid var(--dark-border-color, black);
+}
+output.error {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 0.1em;
+}
+output.info {
+    color: green;
+    font-size: 0.8em;
+    margin-top: 0.1em;
 }
 @media (max-width: 767px) {
     #get-in-touch-container button {
