@@ -36,8 +36,40 @@
             </section>
         </main>
         <footer>
+            <button class="dark-light-toggle" style="display: none;">&#127771;</button>
+            <noscript>
+                <p>Dark mode only available with JavaScript.</p>
+            </noscript>
             <p class="footer-design">Made by Anshi</p>
-            <p>Contact Me: <a href="mailto:anshisingh730@gmail.com" class="footeremail"><i>anshisingh730@gmail.com</i></a></p>        
+            <p>Contact Me: <a href="mailto:anshisingh730@gmail.com" class="footeremail"><i>anshisingh730@gmail.com</i></a></p>
+            <script>
+                const button = document.querySelector(".dark-light-toggle");
+                const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+            
+                const currentTheme = localStorage.getItem("theme");
+                if (currentTheme == "dark") {
+                    document.body.classList.toggle("dark-mode");
+                    button.innerHTML = "&#127771;";
+                } else if (currentTheme == "light") {
+                    document.body.classList.toggle("light-mode");
+                    button.innerHTML = "&#127774;";
+                }
+            
+                button.addEventListener("click", function () {
+                    if (prefersDarkScheme.matches) {
+                        document.body.classList.toggle("light-mode");
+                        var theme = document.body.classList.contains("light-mode") ? "light" : "dark";
+                        button.innerHTML = theme === "light" ? "&#127774;" : "&#127771;";
+                    } else {
+                        document.body.classList.toggle("dark-mode");
+                        var theme = document.body.classList.contains("dark-mode") ? "dark" : "light";
+                        button.innerHTML = theme === "dark" ? "&#127771;" : "&#127774;";
+                    }
+                    localStorage.setItem("theme", theme);
+                });
+
+                button.style.display = "inline-block";
+            </script>             
         </footer>
     </body>
 </html>

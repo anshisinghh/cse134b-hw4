@@ -17,6 +17,14 @@ body {
     margin: 0;
     padding: 0;
 }
+body.dark-mode {
+    background-color: var(--light-background-color);
+    color: var(--dark-text-color);
+}
+body.light-mode {
+    background-color: var(--dark-text-color);
+    color: var(--light-background-color);
+}
 h2 {
     font-size: var(--h2-size);
 }
@@ -32,14 +40,8 @@ footer {
     color : var(--header-footer-text-color, beige);
     padding: 0.5em;
     margin-top: 0;
-}
-/* Parse Error occurs because CSS does not currently support complex selectors like :has() */
-footer:has(p) { 
-    font-size: var(--footer-size);
     text-align: center;
-    line-height: 0;
 }
-/* Instead of :has() above, you can also do this to not get a validation error/ works on browsers that do not yet support :has(). */
 footer p {
     font-size: var(--footer-size);
     text-align: center;
@@ -47,6 +49,12 @@ footer p {
 }
 .footer-design {
     animation: colorChange 8s infinite alternate;
+}
+.dark-light-toggle {
+    display: center;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0;
 }
 @keyframes colorChange {
     50% {
@@ -209,7 +217,7 @@ nav a:hover {
     width: 66%;
     margin: 0 auto;
 }
-#get-in-touch-container input {
+#get-in-touch-container input, #get-in-touch-container textarea{
 	width: 100%;
 	margin-bottom: 1em;
 	padding: 0.5em;
@@ -218,8 +226,8 @@ nav a:hover {
 #get-in-touch-container input {
     height: 3dvh;
 }
-#get-in-touch-container #comments {
-	height: 4dvh;
+#get-in-touch-container textarea{
+	height: 5dvh;
 }
 #get-in-touch-container button {
 	width: 10%;
@@ -236,21 +244,42 @@ nav a:hover {
 #get-in-touch-container button:hover {
     background-color: var(--dark-background-color);
 }
-#contact-form input:user-invalid {
-    background-color: pink;
+output {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
 }
-#contact-form input:valid{
-    border: 1px solid var(--dark-border-color, black);
+.error {
+    width: 80%;
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+    font-size: 0.75em;
+    background-color: rgb(171, 28, 28);
 }
-output.error {
-    color: red;
-    font-size: 0.8em;
-    margin-top: 0.1em;
+.error.stay {
+    color: rgb(255, 255, 255);
 }
-output.info {
-    color: green;
-    font-size: 0.8em;
-    margin-top: 0.1em;
+.error.active {
+    color: rgb(255, 255, 255);
+    animation: fadeOut 10s forwards;
+}
+@keyframes fadeOut {
+0% {
+    opacity: 1;
+}
+100% {
+    opacity: 0;
+}
+}
+#commentsInfo {
+    width: 80%;
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+    font-size: 0.75em;
+    color: white;
+    /* background-color: rgb(171, 28, 28); */
 }
 @media (max-width: 767px) {
     #get-in-touch-container button {
@@ -360,7 +389,7 @@ output.info {
     padding-left: 1em;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    background-color: var(--dark-content-background-color, black, gray);
+    background-color: var(--dark-content-background-color, black);
     color: var(--light-text-color, beige);
 }
 
