@@ -484,7 +484,7 @@ output {
 }
 .skills-container ul li {
     display: inline; 
-    border: 1px solid var(--dark-border-color, black);
+    border: 1px solid var(--light-border-color, white);
     background-color: var(--light-content-background-color, green);
     color: var(--button-text-color, white);
     padding: 0.5em;
