@@ -107,12 +107,12 @@
 
                         if (isEmailEmpty) {
                             emailError.textContent = "Email is required.";
-                            emailError.className = "error stay";
+                            emailError.className = "error active";
                             form_errors.push("Empty field.");
                             errorForm.value = JSON.stringify(form_errors);
                         } else if (!isEmailValid) {   
                             emailError.textContent = "Enter a valid email.";
-                            emailError.className = "error active";
+                            emailError.className = "error stay";
                             form_errors.push("Illegal character was used.");
                             errorForm.value = JSON.stringify(form_errors);
                         } else if (isEmailValid) {  
